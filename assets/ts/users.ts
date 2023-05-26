@@ -16,7 +16,8 @@ export class User{
 
     public chiamata(minutiDurata:number):void{
         this.numeroChiamate++;
-        this.carica-= +(minutiDurata * User.tariffa).toFixed(2);
+        let tmp = this.carica - minutiDurata * User.tariffa; 
+        this.carica = Math.round((tmp) * 100)/100;
     }//aggiornare carica increm numero chiamate
 
     public numero404():number{
@@ -34,6 +35,14 @@ export class User{
     public descrizione():string{
         return '';
     }
+
+    public getDomElement():string{
+        return `<div class="el">
+        <h1>${this.descrizione().split(',').join('</br>')}</h1>
+        <h2>Credito residuo: ${this.numero404().toFixed(2)}\u20AC</h2>
+        <h2>Numero chiamate: ${this.getNumeroChiamate()}</h2>
+        </div>`;
+    }
 }
 
 export class FirstUser extends User implements Smartphone{
@@ -46,7 +55,7 @@ export class FirstUser extends User implements Smartphone{
     }
 
     public descrizione():string{
-        return `Primo utente, ${this.nome}\n`+`operatore telefonico ${FirstUser.operatore}`;
+        return `Primo utente, ${this.nome},\n`+`operatore telefonico ${FirstUser.operatore}`;
     }
 }
 

@@ -8,7 +8,8 @@ class User {
     } //incrementare carica
     chiamata(minutiDurata) {
         this.numeroChiamate++;
-        this.carica -= +(minutiDurata * User.tariffa).toFixed(2);
+        let tmp = this.carica - minutiDurata * User.tariffa;
+        this.carica = Math.round((tmp) * 100) / 100;
     } //aggiornare carica increm numero chiamate
     numero404() {
         return this.carica;
@@ -22,6 +23,13 @@ class User {
     descrizione() {
         return '';
     }
+    getDomElement() {
+        return `<div class="el">
+        <h1>${this.descrizione().split(',').join('</br>')}</h1>
+        <h2>Credito residuo: ${this.numero404().toFixed(2)}\u20AC</h2>
+        <h2>Numero chiamate: ${this.getNumeroChiamate()}</h2>
+        </div>`;
+    }
 }
 User.tariffa = 0.20;
 export { User };
@@ -31,7 +39,7 @@ class FirstUser extends User {
         this.nome = _nome;
     }
     descrizione() {
-        return `Primo utente, ${this.nome}\n` + `operatore telefonico ${FirstUser.operatore}`;
+        return `Primo utente, ${this.nome},\n` + `operatore telefonico ${FirstUser.operatore}`;
     }
 }
 FirstUser.operatore = 'TIM';

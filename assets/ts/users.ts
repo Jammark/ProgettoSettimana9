@@ -69,7 +69,7 @@ export class SecondUser extends User implements Smartphone{
     }
 
     public descrizione():string{
-        return `Secondo utente, ${this.nome}\n`+`operatore telefonico ${SecondUser.operatore}`;
+        return `Secondo utente, ${this.nome},\n`+`operatore telefonico ${SecondUser.operatore}`;
     }
 }
 
@@ -83,6 +83,6 @@ export class ThirdUser extends User implements Smartphone{
     }
 
     public descrizione():string{
-        return `Terzo utente, ${this.nome}\n`+`operatore telefonico ${ThirdUser.operatore}`;
+        return `Terzo utente, ${this.nome},\n`+`operatore telefonico ${ThirdUser.operatore}`;
     }
 }

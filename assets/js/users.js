@@ -50,7 +50,7 @@ class SecondUser extends User {
         this.nome = _nome;
     }
     descrizione() {
-        return `Secondo utente, ${this.nome}\n` + `operatore telefonico ${SecondUser.operatore}`;
+        return `Secondo utente, ${this.nome},\n` + `operatore telefonico ${SecondUser.operatore}`;
     }
 }
 SecondUser.operatore = 'Wind-3';
@@ -61,7 +61,7 @@ class ThirdUser extends User {
         this.nome = _nome;
     }
     descrizione() {
-        return `Terzo utente, ${this.nome}\n` + `operatore telefonico ${ThirdUser.operatore}`;
+        return `Terzo utente, ${this.nome},\n` + `operatore telefonico ${ThirdUser.operatore}`;
     }
 }
 ThirdUser.operatore = 'Vodafone';
